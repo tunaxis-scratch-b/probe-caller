@@ -1,0 +1,8 @@
+name: call-reusable
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  call:
+    uses: tunaxis-scratch-a/probe-actions/.github/workflows/reusable.yml@v1
