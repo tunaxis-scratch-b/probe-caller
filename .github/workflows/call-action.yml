@@ -1,0 +1,10 @@
+name: call-action
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tunaxis-scratch-a/probe-actions/hello@v1
