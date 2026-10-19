@@ -1,0 +1,18 @@
+name: call-env
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  env:
+    runs-on: ubuntu-latest
+    environment: proof
+    steps:
+      - name: Print value hash
+        shell: bash
+        env:
+          PROOF_SECRET: ${{ secrets.PROOF_SECRET }}
+        run: |
+          set -euo pipefail
+          value_hash=$(printf '%s' "$PROOF_SECRET" | sha256sum | awk '{print $1}')
+          printf 'value-sha256=%s\n' "$value_hash"
